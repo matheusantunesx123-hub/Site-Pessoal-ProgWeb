@@ -1,3 +1,14 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -12,18 +23,27 @@ body {
 
     color: #ffffff;
 
-    font-family: 'Times New Roman', Helvetica, sans-serif;
+    font-family: "Times New Roman", Helvetica, sans-serif;
     font-style: normal;
+
+    min-height: 100vh;
 }
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header {
     position: relative;
 
-    padding: 20px;
+    padding: 40px 20px;
 
     text-align: center;
 
     overflow: hidden;
+
+    isolation: isolate;
 }
 
 header::before {
@@ -32,13 +52,21 @@ header::before {
     position: absolute;
     inset: 0;
 
-    background-image: url("../prog.web/img/h3.jpg");
+    background-image: url("img/h3.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 
     filter: contrast(30%);
 
     z-index: -1;
+}
+
+header h1,
+header h2,
+header p {
+    position: relative;
+    z-index: 1;
 }
 
 header p {
@@ -48,8 +76,15 @@ header p {
 
     background-color: rgba(7, 129, 17, 0.5);
 }
+
+
+/* =========================================================
+   PAINEL SOCIAL
+   ========================================================= */
+
 .social-panel {
     position: fixed;
+
     bottom: 20px;
     right: 20px;
 
@@ -60,17 +95,20 @@ header p {
     padding: 10px;
 
     background-color: rgba(0, 0, 0, 0.4);
+
     border-radius: 15px;
 
-    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 
     z-index: 1000;
 }
+
 .social-panel a {
     width: 55px;
     height: 55px;
 
     background-color: #1c1c1c;
+
     border-radius: 50%;
 
     display: flex;
@@ -78,45 +116,29 @@ header p {
     justify-content: center;
 
     transition: 0.3s;
-}
-.social-panel img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    display: block;
+
+    text-decoration: none;
 }
 
 .social-panel a:hover {
     transform: scale(1.15);
 }
 
-  
+.social-panel img {
+    width: 28px;
+    height: 28px;
 
-#filme .card-filme h2,
-#filme .card-filme p {
-  color: #111;
-}
-#filme {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 0;
 }
 
-#filme .card-filme {
-  width: 220px;
-  background: #f4f4f4;
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
 
-#filme .card-filme img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+/* =========================================================
+   TÍTULOS E TEXTOS
+   ========================================================= */
 
 h1 {
     color: #ffffff;
@@ -150,7 +172,15 @@ p {
 
     text-align: justify;
     text-justify: inter-word;
+
+    max-width: 1000px;
+    margin: 0 auto;
 }
+
+
+/* =========================================================
+   NAVEGAÇÃO
+   ========================================================= */
 
 nav {
     display: flex;
@@ -161,12 +191,16 @@ nav {
     padding: 10px 20px;
 
     background-color: #1c1c1c;
+
+    gap: 20px;
 }
 
 nav h2 {
     margin: 0;
 
     color: #a5d6a7;
+
+    white-space: nowrap;
 }
 
 nav ul {
@@ -178,9 +212,14 @@ nav ul {
     padding: 0;
 
     list-style: none;
+
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
+    display: block;
+
     padding: 8px;
 
     border-radius: 5px;
@@ -188,6 +227,7 @@ nav a {
     color: #a5d6a7;
 
     font-weight: bold;
+
     text-decoration: none;
 
     transition: 0.3s;
@@ -201,11 +241,17 @@ nav a:hover {
     color: white;
 }
 
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
 section {
     margin: 15px;
     padding: 15px;
 
     border: 1px solid #1b5e20;
+
     border-radius: 10px;
 
     background-color: rgba(0, 0, 0, 0.6);
@@ -220,6 +266,11 @@ section:hover {
 
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
+
+
+/* =========================================================
+   SEÇÃO VERDE
+   ========================================================= */
 
 #porescuro {
     background-color: rgb(7, 129, 17);
@@ -238,6 +289,11 @@ section:hover {
 
     font-size: 18px;
 }
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
 
 .cards {
     display: grid;
@@ -269,8 +325,57 @@ section:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
+
+/* =========================================================
+   FILMES
+   ========================================================= */
+
+#filme {
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+#filme .card-filme {
+    width: 220px;
+
+    background: #f4f4f4;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#filme .card-filme h2,
+#filme .card-filme p {
+    color: #111;
+}
+
+#filme .card-filme img {
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   TABELAS
+   ========================================================= */
+
 .tabela {
     text-align: center;
+
+    overflow-x: auto;
 }
 
 table {
@@ -319,6 +424,11 @@ tr:hover td {
     background-color: #dcedc8;
 }
 
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
 form {
     display: flex;
 
@@ -332,6 +442,7 @@ select {
     padding: 8px;
 
     border: none;
+
     border-radius: 5px;
 
     transition: 0.3s;
@@ -351,6 +462,7 @@ input[type="reset"] {
     padding: 10px 15px;
 
     border: none;
+
     border-radius: 5px;
 
     background-color: #2e7d32;
@@ -369,7 +481,14 @@ input[type="reset"]:hover {
     background-color: #43a047;
 }
 
+
+/* =========================================================
+   IMAGENS
+   ========================================================= */
+
 img {
+    max-width: 100%;
+
     border-radius: 10px;
 
     transition: 0.5s;
@@ -381,13 +500,25 @@ img:hover {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
+
+/* =========================================================
+   ÁUDIO
+   ========================================================= */
+
 audio {
+    max-width: 100%;
+
     transition: 0.4s;
 }
 
 audio:hover {
     transform: scale(1.03);
 }
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
 
 footer {
     padding: 15px;
@@ -403,7 +534,16 @@ footer:hover {
     background-color: black;
 }
 
-@media (max-width: 768px) {
+footer p {
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1000px) {
 
     nav {
         flex-direction: column;
@@ -412,16 +552,156 @@ footer:hover {
     }
 
     nav ul {
+        gap: 15px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    table {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header h2 {
+        font-size: 20px;
+    }
+
+    .textop {
+        font-size: 16px;
+    }
+
+    nav {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 15px;
+    }
+
+    nav ul {
         flex-direction: column;
 
         align-items: center;
+
+        gap: 10px;
+
+        width: 100%;
+    }
+
+    nav li {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    nav a {
+        width: 100%;
     }
 
     .cards {
         grid-template-columns: 1fr;
     }
 
+    section {
+        margin: 10px;
+
+        padding: 12px;
+    }
+
     table {
         width: 100%;
+
+        font-size: 14px;
+    }
+
+    th {
+        padding: 10px;
+
+        font-size: 15px;
+    }
+
+    td {
+        padding: 8px;
+    }
+
+    .social-panel {
+        bottom: 10px;
+
+        right: 10px;
+
+        gap: 8px;
+
+        padding: 7px;
+    }
+
+    .social-panel a {
+        width: 45px;
+
+        height: 45px;
+    }
+
+    .social-panel img {
+        width: 23px;
+
+        height: 23px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    header h2 {
+        font-size: 18px;
+    }
+
+    .textop {
+        font-size: 14px;
+    }
+
+    section {
+        margin: 7px;
+
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th {
+        padding: 7px;
+
+        font-size: 13px;
+    }
+
+    td {
+        padding: 6px;
+    }
+
+    .social-panel {
+        transform: scale(0.9);
+
+        transform-origin: bottom right;
     }
 }
